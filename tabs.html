@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>B-JUI 客户端框架</title>
+<meta name="Keywords" content="B-JUI,Bootstrap,DWZ,jquery,ui,前端,框架,开源,OSC,开源框架,knaan"/>
+<meta name="Description" content="B-JUI, Bootstrap for DWZ富客户端框架，基于DWZ富客户端框架修改。主要针对皮肤，编辑器，表单验证等方面进行了大量修改，引入了Bootstrap，Font Awesome，KindEditor，jquery.validationEngine，iCheck等众多开源项目。交流QQ群：232781006。"/> 
+<!-- bootstrap - css -->
+<link href="BJUI/themes/css/bootstrap.css" rel="stylesheet">
+<!-- core - css -->
+<link href="BJUI/themes/css/style.css" rel="stylesheet">
+<link href="BJUI/themes/purple/core.css" id="bjui-link-theme" rel="stylesheet">
+<!-- plug - css -->
+<link href="BJUI/plugins/kindeditor_4.1.10/themes/default/default.css" rel="stylesheet">
+<link href="BJUI/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="BJUI/plugins/niceValidator/jquery.validator.css" rel="stylesheet">
+<link href="BJUI/plugins/bootstrapSelect/bootstrap-select.css" rel="stylesheet">
+<link href="BJUI/themes/css/FA/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lte IE 7]>
+<link href="BJUI/themes/css/ie7.css" rel="stylesheet">
+<![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lte IE 9]>
+    <script src="BJUI/other/html5shiv.min.js"></script>
+    <script src="BJUI/other/respond.min.js"></script>
+<![endif]-->
+<!-- jquery -->
+<script src="BJUI/js/jquery-1.7.2.min.js"></script>
+<script src="BJUI/js/jquery.cookie.js"></script>
+<!--[if lte IE 9]>
+<script src="BJUI/other/jquery.iframe-transport.js"></script>    
+<![endif]-->
+<!-- BJUI.all 分模块压缩版 -->
+<script src="BJUI/js/bjui-all.js"></script>
+<!-- 以下是B-JUI的分模块未压缩版，建议开发调试阶段使用下面的版本 -->
+<!--
+<script src="BJUI/js/bjui-core.js"></script>
+<script src="BJUI/js/bjui-regional.zh-CN.js"></script>
+<script src="BJUI/js/bjui-frag.js"></script>
+<script src="BJUI/js/bjui-extends.js"></script>
+<script src="BJUI/js/bjui-basedrag.js"></script>
+<script src="BJUI/js/bjui-slidebar.js"></script>
+<script src="BJUI/js/bjui-contextmenu.js"></script>
+<script src="BJUI/js/bjui-navtab.js"></script>
+<script src="BJUI/js/bjui-dialog.js"></script>
+<script src="BJUI/js/bjui-taskbar.js"></script>
+<script src="BJUI/js/bjui-ajax.js"></script>
+<script src="BJUI/js/bjui-alertmsg.js"></script>
+<script src="BJUI/js/bjui-pagination.js"></script>
+<script src="BJUI/js/bjui-util.date.js"></script>
+<script src="BJUI/js/bjui-datepicker.js"></script>
+<script src="BJUI/js/bjui-ajaxtab.js"></script>
+<script src="BJUI/js/bjui-tablefixed.js"></script>
+<script src="BJUI/js/bjui-tabledit.js"></script>
+<script src="BJUI/js/bjui-spinner.js"></script>
+<script src="BJUI/js/bjui-lookup.js"></script>
+<script src="BJUI/js/bjui-tags.js"></script>
+<script src="BJUI/js/bjui-upload.js"></script>
+<script src="BJUI/js/bjui-theme.js"></script>
+<script src="BJUI/js/bjui-initui.js"></script>
+<script src="BJUI/js/bjui-plugins.js"></script>
+-->
+<!-- plugins -->
+<!-- swfupload for uploadify && kindeditor -->
+<script src="BJUI/plugins/swfupload/swfupload.js"></script>
+<!-- kindeditor -->
+<script src="BJUI/plugins/kindeditor_4.1.10/kindeditor-all.min.js"></script>
+<script src="BJUI/plugins/kindeditor_4.1.10/lang/zh_CN.js"></script>
+<!-- colorpicker -->
+<script src="BJUI/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- ztree -->
+<script src="BJUI/plugins/ztree/jquery.ztree.all-3.5.js"></script>
+<!-- nice validate -->
+<script src="BJUI/plugins/niceValidator/jquery.validator.js"></script>
+<script src="BJUI/plugins/niceValidator/jquery.validator.themes.js"></script>
+<!-- bootstrap plugins -->
+<script src="BJUI/plugins/bootstrap.min.js"></script>
+<script src="BJUI/plugins/bootstrapSelect/bootstrap-select.min.js"></script>
+<!-- icheck -->
+<script src="BJUI/plugins/icheck/icheck.min.js"></script>
+<!-- dragsort -->
+<script src="BJUI/plugins/dragsort/jquery.dragsort-0.5.1.min.js"></script>
+<!-- HighCharts -->
+
+<script src="BJUI/plugins/highcharts/highcharts.js"></script>
+<script src="BJUI/plugins/highcharts/highcharts-3d.js"></script>
+<script src="BJUI/plugins/highcharts/themes/gray.js"></script>
+<!-- ECharts -->
+<script src="BJUI/plugins/echarts/echarts.js"></script>
+<!-- other plugins -->
+<script src="BJUI/plugins/other/jquery.autosize.js"></script>
+<link href="BJUI/plugins/uploadify/css/uploadify.css" rel="stylesheet">
+<script src="BJUI/plugins/uploadify/scripts/jquery.uploadify.min.js"></script>
+<!-- init -->
+<script type="text/javascript">
+$(function() {
+    BJUI.init({
+        JSPATH       : 'BJUI/',         //[可选]框架路径
+        PLUGINPATH   : 'BJUI/plugins/', //[可选]插件路径
+        loginInfo    : {url:'login_timeout.html', title:'登录', width:400, height:200}, // 会话超时后弹出登录对话框
+        statusCode   : {ok:200, error:300, timeout:301}, //[可选]
+        ajaxTimeout  : 50000, //[可选]全局Ajax请求超时时间(毫秒)
+        alertTimeout : 3000,  //[可选]信息提示[info/correct]自动关闭延时(毫秒)
+        pageInfo     : {pageCurrent:'pageCurrent', pageSize:'pageSize', orderField:'orderField', orderDirection:'orderDirection'}, //[可选]分页参数
+        keys         : {statusCode:'statusCode', message:'message'}, //[可选]
+        ui           : {
+                         showSlidebar     : true, //[可选]左侧导航栏锁定/隐藏
+                         clientPaging     : true, //[可选]是否在客户端响应分页及排序参数
+                         overwriteHomeTab : false //[可选]当打开一个未定义id的navtab时，是否可以覆盖主navtab(我的主页)
+                       },
+        debug        : true,    // [可选]调试模式 [true|false，默认false]
+        theme        : 'purple' // 若有Cookie['bjui_theme'],优先选择Cookie['bjui_theme']。皮肤[五种皮肤:default, orange, purple, blue, red, green]
+    })
+    //时钟
+    var today = new Date(), time = today.getTime()
+    $('#bjui-date').html(today.formatDate('yyyy/MM/dd'))
+    setInterval(function() {
+        today = new Date(today.setSeconds(today.getSeconds() + 1))
+        $('#bjui-clock').html(today.formatDate('HH:mm:ss'))
+    }, 1000)
+})
+
+//console.log('IE:'+ (!$.support.leadingWhitespace))
+//菜单-事件
+function MainMenuClick(event, treeId, treeNode) {
+    if (treeNode.isParent) {
+        var zTree = $.fn.zTree.getZTreeObj(treeId)
+        
+        zTree.expandNode(treeNode)
+        return
+    }
+    
+    if (treeNode.target && treeNode.target == 'dialog')
+        $(event.target).dialog({id:treeNode.tabid, url:treeNode.url, title:treeNode.name})
+    else
+        $(event.target).navtab({id:treeNode.tabid, url:treeNode.url, title:treeNode.name, fresh:treeNode.fresh, external:treeNode.external})
+    event.preventDefault()
+}
+</script>
+<!-- for doc begin -->
+<link type="text/css" rel="stylesheet" href="/js/syntaxhighlighter-2.1.382/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="/js/syntaxhighlighter-2.1.382/styles/shThemeEclipse.css"/>
+<script type="text/javascript" src="/js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+<link href="doc/doc.css" rel="stylesheet">
+<script type="text/javascript">
+$(function(){
+    SyntaxHighlighter.config.clipboardSwf = '/js/syntaxhighlighter-2.1.382/scripts/clipboard.swf'
+    $(document).on(BJUI.eventType.initUI, function(e) {
+        SyntaxHighlighter.highlight();
+    })
+})
+</script>
+<!-- for doc end -->
+</head>
+<body>
+
+
+
+
+
+<div class="bjui-pageContent">
+    <form action="ajaxDone1.html" id="j_form_form" class="pageForm" data-toggle="validate">
+        <div style="margin:15px auto 0; width:800px;">
+            <fieldset>
+                <legend>选项卡</legend>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+                    <li><a href="form-input.html" role="tab" data-toggle="ajaxtab" data-target="#profile" data-reload="false">ajax加载</a></li>
+                    <li><a href="#messages" role="tab" data-toggle="tab">固定表头表格</a></li>
+                    <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="home"><p>选项卡的a标签上添加[data-toggle="ajaxtab"]属性可以实现ajax加载内容。</p><p>[data-reload]属性可以定义点击该选项卡时是否每次都需要重新加载。</p></div>
+                    <div class="tab-pane fade" id="profile"><!-- Ajax加载 --></div>
+                    <div class="tab-pane fade" id="messages">
+                        <table class="table table-bordered table-hover table-striped table-condensed" data-toggle="tablefixed" data-height="150">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" data-order-field="operation">ID</th>
+                                    <th rowspan="2" data-order-field="name">姓名</th>
+                                    <th rowspan="2" data-order-field="sex">性别</th>
+                                    <th colspan="2" align="center">出生信息</th>
+                                </tr>
+                                <tr>
+                                    <th data-order-field="birthday">出生日期</th>
+                                    <th data-order-field="birthplace">出生地</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>一一</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>二二</td>
+                                    <td>♀</td>
+                                    <td>1999-01-01</td>
+                                    <td>JP</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>三三</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>四四</td>
+                                    <td>♀</td>
+                                    <td>2005-01-01</td>
+                                    <td>US</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>五五</td>
+                                    <td>♀</td>
+                                    <td>2000-01-01</td>
+                                    <td>KR</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>六六</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>七七</td>
+                                    <td>♀</td>
+                                    <td>1999-01-01</td>
+                                    <td>JP</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>八八</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>九九</td>
+                                    <td>♀</td>
+                                    <td>2005-01-01</td>
+                                    <td>US</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>十十</td>
+                                    <td>♀</td>
+                                    <td>2000-01-01</td>
+                                    <td>KR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="settings">No4. Settings</div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

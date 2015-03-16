@@ -1,0 +1,80 @@
+<script type="text/javascript">
+
+</script>
+<div class="bjui-pageHeader" style="background:#FFF;">
+    <div style="padding: 0 15px;">
+        <h4>
+            B-JUI 前端框架　
+            <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=0047455f3845597286edd381d54076b1e10a45c0c735115f0ee74961f70880af"><img border="0" src="images/group.png" alt="B-JUI前端框架-群1" title="B-JUI前端框架-群1" style="vertical-align:top;"></a>
+            <span class="label label-default" style="vertical-align:middle;">(1群已满)</span>　
+            <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=96974f9b311cb8566e371703e2e4c2abb23c4835f4ec6c2893652f7a3b920c32"><img border="0" src="images/group.png" alt="B-JUI前端框架-群2" title="B-JUI前端框架-群2" style="vertical-align:top;"></a>
+        </h4>
+        <div class="alert alert-success" role="alert" style="margin:0 0 5px; padding:5px 15px 0;">
+            <strong>B-JUI开发团队欢迎你!</strong> <a href="http://weibo.com/xknaan" target="_blank">@萧克南</a>　<a href="http://www.topstack.cn" target="_blank">@小策一喋</a>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>官方论坛：<a href="http://www.b-jui.com/" target="_blank">http://www.b-jui.com/</a></h5>
+                <h5>项目地址：<a href="http://git.oschina.net/xknaan/B-JUI" target="_blank">GIT</a>　<a href="http://www.oschina.net/p/bootstrap-for-DWZ" target="_blank">OSCHINA</a></h5>
+                <h5>微博地址：<a href="http://weibo.com/xknaan" target="_blank">http://weibo.com/xknaan</a></h5>                                  
+            </div>
+            <div class="col-md-6">
+                <h5>框架演示：<a href="http://b-jui.com/" target="_blank">http://b-jui.com/</a></h5>
+                <h5>DWZ(J-UI)官网：<a href="http://www.j-ui.com/" target="_blank">http://www.j-ui.com/</a></h5>
+                <h5>Bootstrap中文网：<a href="http://www.bootcss.com/" target="_blank">http://www.bootcss.com/</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bjui-pageContent">
+    <div style="position:absolute;top:5px;right:0;width:300px;">
+        <iframe width="100%" height="550" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=2838273614&verifier=75a3b95b&dpc=1"></iframe>
+    </div>
+    <div style="margin-top:5px; margin-right:300px; overflow:hidden;">
+        <div class="row" style="padding: 0 8px;">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3 class="panel-title">历史版本</h3></div>
+                    <div class="panel-body">
+                        <table class="table table-condensed table-striped table-hover" width="100%">
+                            <thead>
+                                <tr>
+                                    <th width="100">版本号</th>
+                                    <th width="90">发布日期</th>
+                                    <th width="120">在线DEMO</th>
+                                    <th>下载地址</th>
+                                    <th>描述</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.0 beta</td>
+                                    <td>2014.10.31</td>
+                                    <td>http://b-jui.com/</td>
+                                    <td>http://git.oschina.net/xknaan/B-JUI</td>
+                                    <td>全新的前端框架B-JUI，全Bootstrap插件式的组合，仅借鉴了DWZ的思想，功能已全部重写。</td>
+                                </tr>
+                                <tr>
+                                    <td>0.1 released</td>
+                                    <td>2014.08.01</td>
+                                    <td>- 无 -</td>
+                                    <td>http://git.oschina.net/xknaan/Bootstrap_for_DWZ</td>
+                                    <td>穿上Bootstrap衣服的DWZ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3 class="panel-title">BJUI/GIT</h3></div>
+                    
+                    <div class="panel-body">
+                        <iframe width="100%" height="240" class="share_self" frameborder="0" scrolling="no" src="git.html"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
